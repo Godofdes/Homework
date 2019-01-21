@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, final int progress, boolean fromUser) {
 
-                animationView.setProgress(progress);
+               animationView.setProgress(progress/100f);
                
                 // TODO 3: 这里应该调用哪个函数呢
                 // 提示1：可以参考 https://airbnb.io/lottie/android/android.html#custom-animators
