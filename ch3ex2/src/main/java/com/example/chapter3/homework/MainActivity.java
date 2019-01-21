@@ -1,7 +1,9 @@
 package com.example.chapter3.homework;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -138,11 +140,24 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO 1：在这里实现另一个 ObjectAnimator，对 target 控件的大小进行缩放，从 1 到 2 循环
 
-        // TODO 2：在这里实现另一个 ObjectAnimator，对 target 控件的透明度进行修改，从 1 到 0.5f 循环
+        ObjectAnimator animator2X = ObjectAnimator.ofFloat(target, "scaleX", 1f, 2f,1f);
+        animator2X.setDuration(1000);
+        animator2X.setRepeatCount(-1);
+        ObjectAnimator animator2Y = ObjectAnimator.ofFloat(target, "scaleY", 1f, 2f,1f);
+        animator2Y.setDuration(1000);
+        animator2Y.setRepeatCount(-1);
 
+        // TODO 2：在这里实现另一个 ObjectAnimator，对 target 控件的透明度进行修改，从 1 到 0.5f 循环
+        ObjectAnimator animator3 = ObjectAnimator.ofFloat(target,"alpha",1,(float)(0.5),1);
+        animator3.setDuration(2000);
+        animator3.start();
         // TODO 3: 将上面创建的其他 ObjectAnimator 都添加到 AnimatorSet 中
+
         animatorSet = new AnimatorSet();
         animatorSet.playTogether(animator1);
+        animatorSet.playTogether(animator2X);
+        animatorSet.playTogether(animator2Y);
+        animatorSet.playTogether(animator3);
         animatorSet.start();
     }
 }
